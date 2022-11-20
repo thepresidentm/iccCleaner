@@ -5,15 +5,16 @@ let clean = document.getElementById("clean");
 
 button.addEventListener("click", () => {
     let out = new Array();
-    text = input.value.split("\n");
+    text = input.innerText.split("\n");
+    console.log(text);
     text.forEach(element => {
         if(Number.isNaN(parseInt(element)))
             out.push(element.replaceAll(" ", "").replaceAll("␣", " "));
     });
-    output.innerHTML = out;
+    output.innerText = out.join("\n");
 })
 
 clean.addEventListener("click", () => {
-    input.value = "";
-    output.innerHTML = "El codigo limpio";
+    input.innerText = "Introduce tu codigo";
+    output.innerText = "El codigo limpio";
 });
